@@ -83,6 +83,11 @@ if player_sum > 21:
     print("You busted! Try again.")
     exit()
 
+#if player sum is 21
+if player_sum == 21:
+    print("Congratulations! You won!")
+    exit()
+
 # start dealer's turn
 print("Dealer's second card: " + dealer_card_2)
 
@@ -107,8 +112,8 @@ while dealer_sum < 21:
             print("Dealer's total is: " + str(dealer_sum))
             break
 
-# if both sums are 21
-if player_sum == 21 and dealer_sum == 21:
+# if both sums are the same
+if player_sum == dealer_sum:
     print("Game is a tie!")
 
 # if dealer sum is 21 and player sum is not
