@@ -1,6 +1,19 @@
 # imports random module
 import random
 
+# ask user how much they would like in their balance
+balance = int(input("How much would you like in your balance?: "))
+
+# ask user what they would like to bet
+bet = int(input("How much would you like to bet?: "))
+
+# checks if bet is less than balance
+if bet <= balance:
+    balance -= bet
+if bet > balance:
+    print("Error: Bet is more than what is in balance. Pick a lower bet.")
+    exit()
+
 # array of the different possible cards
 cards = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
 
@@ -86,6 +99,8 @@ if player_sum > 21:
 #if player sum is 21
 if player_sum == 21:
     print("Congratulations! You won!")
+    balance += bet * 2
+    print("Your balance is now: " + str(balance))
     exit()
 
 # start dealer's turn
@@ -115,19 +130,33 @@ while dealer_sum < 21:
 # if both sums are the same
 if player_sum == dealer_sum:
     print("Game is a tie!")
+    balance += bet
+    print("Returning your bet...")
+    print("Your balance is now: " + str(balance))
 
 # if dealer sum is 21 and player sum is not
 if dealer_sum == 21 and sum != 21:
     print("The dealer wins. Try again.")
+    print("Your balance is now: " + str(balance))
 
 # if dealer sum is over 21
 if dealer_sum > 21:
     print("Dealer's total is: " + str(dealer_sum))
     print("The dealer has busted. You win!")
+    balance += bet * 2
+    print("Your balance is now: " + str(balance))
 
 # if player's sum is higher than the dealer's
 if player_sum > dealer_sum and player_sum < 21:
     print("Congratulations! You win!")
+    balance += bet * 2
+    print("Your balance is now: " + str(balance))
+
 # if dealer's sum is higher than player's
 if dealer_sum > player_sum and dealer_sum < 21:
     print("The dealer has won. Try again.")
+    print("Your balance is now: " + str(balance))
+
+# if player goes bankrupt
+if balance == 0:
+    print("You are bankrupt. Add more money to your balance in order to continue.")
