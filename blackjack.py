@@ -16,11 +16,17 @@ print(card_1)
 print(card_2)
 
 # deals with Ace
-if card_1 == "Ace" or card_2 == "Ace":
+if card_1 == "Ace":
     user_choice = input("Would you like the value to be 1 or 11?: ")
-    if user_choice == 1:
+    if user_choice == "1":
         card_values["Ace"] = 1
-    if user_choice == 11:
+    if user_choice == "11":
+        card_values["Ace"] = 11
+if card_2 == "Ace":
+    user_choice = input("Would you like the value to be 1 or 11?: ")
+    if user_choice == "1":
+        card_values["Ace"] = 1
+    if user_choice == "11":
         card_values["Ace"] = 11
 
 # sum of the values
@@ -34,13 +40,14 @@ while sum < 21:
         print(card)
         if card == "Ace":
             user_choice = input("Would you like the value to be 1 or 11?: ")
-            if user_choice == 1:
-                sum += 1
-            if user_choice == 11:
-                sum += 11
-        sum += card_values[card]
+            if user_choice == "1":
+                card_values["Ace"] = 1
+            if user_choice == "11":
+                card_values["Ace"] = 11
+    sum += card_values[card]
     if user_choice == "pass":
         print("You ended your turn.")
+        break
 
 # if sum is 21
 if sum == 21:
@@ -48,4 +55,5 @@ if sum == 21:
     
 # if sum goes over 21
 if sum > 21:
+    print("Total = " + str(sum))
     print("You busted! Try again.")
