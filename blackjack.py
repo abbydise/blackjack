@@ -105,6 +105,7 @@ while dealer_sum < 21:
         dealer_choice = "pass"
         if dealer_choice == "pass":
             print("Dealer's total is: " + str(dealer_sum))
+            break
 
 # if both sums are 21
 if player_sum == 21 and dealer_sum == 21:
@@ -116,7 +117,7 @@ if dealer_sum == 21 and sum != 21:
 
 # if dealer sum is over 21
 if dealer_sum > 21:
-    print("The dealer's total is: " + str(dealer_sum))
+    print("Dealer's total is: " + str(dealer_sum))
     print("The dealer has busted. You win!")
 
 # if player's sum is higher than the dealer's
